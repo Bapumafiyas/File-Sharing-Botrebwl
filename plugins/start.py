@@ -1,8 +1,5 @@
 #(©)CodeXBotz
 
-
-
-
 import os
 import asyncio
 from pyrogram import Client, filters, __version__
@@ -12,7 +9,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
-from helper_func import subscribed, encode, decode, get_messages
+from helper_func import subscribed, subscribed1, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
 
@@ -88,7 +85,6 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
                     InlineKeyboardButton("🔒 Close", callback_data = "close")
                 ]
             ]
@@ -122,9 +118,10 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(
-                "Join Channel",
-                url = client.invitelink)
+            [
+            InlineKeyboardButton(text="Join Channel", url="https://t.me/+in0-8xcZaLliYTI9"),
+            InlineKeyboardButton(text="Join Channel", url="https://t.me/+7zaBqjJiW4QzMzk1"),
+        ]
         ]
     ]
     try:
